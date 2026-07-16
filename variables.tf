@@ -194,3 +194,21 @@ variable "use_32_bit_worker" {
   description = "Specifies whether the Azure Windows Web App should run using a 32-bit worker process instead of the default 64-bit worker process."
   default     = false
 }
+
+# --- Added from old repo (missing in new as of comparison) ---
+variable "psc_name" {
+  type        = string
+  description = "Name of the Private Service Connection for the Azure Private Endpoint."
+}
+
+# --- Added from old repo (missing in new as of comparison) ---
+variable "pdnsgrp_name" {
+  type        = string
+  description = "Name of the Private DNS Zone Group associated with the Azure Private Endpoint."
+}
+
+# --- Added from old repo (missing in new as of comparison) ---
+variable "custom_network_interface_name" {
+  type        = string
+  description = "Name of the Network Interface (NIC) to be created for the Azure Private Endpoint."
+}
