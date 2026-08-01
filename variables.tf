@@ -79,13 +79,13 @@ variable "vnet_route_all_enabled" {
 variable "physical_path" {
   type        = string
   description = "value"
-  default     = "site\\wwwroot\\"
+  default = "site\\wwwroot\\"
 
 }
 variable "virtual_path" {
   type        = string
   description = "value"
-  default     = "/"
+  default = "/"
 
 }
 variable "physical_path1" {
@@ -176,7 +176,7 @@ variable "is_manual_connection" {
 variable "subresource_names" {
   type        = list(string)
   description = " A list of subresource names which the Private Endpoint is able to connect to."
-  default     = ["sites"]
+  default = [ "sites" ]
 }
 variable "private_dns_zone_ids" {
   type        = list(string)
@@ -187,28 +187,4 @@ variable "ip_configuration" {
   type        = bool
   default     = false
   description = "One or more ip_configuration blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet."
-}
-
-variable "use_32_bit_worker" {
-  type        = bool
-  description = "Specifies whether the Azure Windows Web App should run using a 32-bit worker process instead of the default 64-bit worker process."
-  default     = false
-}
-
-# --- Added from old repo (missing in new as of comparison) ---
-variable "psc_name" {
-  type        = string
-  description = "Name of the Private Service Connection for the Azure Private Endpoint."
-}
-
-# --- Added from old repo (missing in new as of comparison) ---
-variable "pdnsgrp_name" {
-  type        = string
-  description = "Name of the Private DNS Zone Group associated with the Azure Private Endpoint."
-}
-
-# --- Added from old repo (missing in new as of comparison) ---
-variable "custom_network_interface_name" {
-  type        = string
-  description = "Name of the Network Interface (NIC) to be created for the Azure Private Endpoint."
 }
