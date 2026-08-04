@@ -10,19 +10,20 @@ resource "azurerm_windows_web_app" "example" {
   site_config {
     ftps_state             = var.ftps_state
     vnet_route_all_enabled = var.vnet_route_all_enabled
-    app_command_line = var.app_command_line
-    
-    dynamic "ip_restriction" {
-    for_each = var.ip_restrictions
+    app_command_line       = var.app_command_line
+    use_32_bit_worker      = var.use_32_bit_worker
 
-    content {
-      action     = "Allow"
-      headers    = []
-      ip_address = ip_restriction.value.ip_address
-      name       = ip_restriction.key
-      priority   = ip_restriction.value.priority
+    dynamic "ip_restriction" {
+      for_each = var.ip_restrictions
+
+      content {
+        action     = "Allow"
+        headers    = []
+        ip_address = ip_restriction.value.ip_address
+        name       = ip_restriction.key
+        priority   = ip_restriction.value.priority
+      }
     }
-  }
     dynamic "application_stack" {
       for_each = var.current_stack == "docker" ? [1] : []
       content {
@@ -80,7 +81,7 @@ resource "azurerm_windows_web_app" "example" {
       virtual_path  = var.virtual_path1
     }
 
-}
+  }
 }
 
 # Creates  a private endpoint with private dns
