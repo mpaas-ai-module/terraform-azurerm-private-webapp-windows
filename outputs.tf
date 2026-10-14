@@ -2,13 +2,13 @@
 # Exposes id / name / connection attributes other resources consume.
 
 output "example_id" {
-  value = { for k, v in azurerm_windows_web_app.example : k => v.id }
+  value = azurerm_windows_web_app.example.id
 }
 output "example_name" {
-  value = { for k, v in azurerm_windows_web_app.example : k => v.name }
+  value = azurerm_windows_web_app.example.name
 }
 output "example_default_hostname" {
-  value = { for k, v in azurerm_windows_web_app.example : k => v.default_hostname }
+  value = azurerm_windows_web_app.example.default_hostname
 }
 output "endpoint_id" {
   value = azurerm_private_endpoint.endpoint.id
